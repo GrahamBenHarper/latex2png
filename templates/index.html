@@ -1,0 +1,19 @@
+<html>
+<head>
+<title>latex2png</title>
+</head>
+<body>
+
+<center>
+<form method="GET" action="">
+Equation: <br>
+<input type="text" name="equation" value="enter your equation here..." />
+<br>
+<input type="submit" />
+<br><br>
+<img src="{{ url_for('static', filename='equation.png') }}">
+</form>
+</center>
+
+</body>
+</html>
