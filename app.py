@@ -28,6 +28,9 @@ app = Flask(__name__)
 
 
 def save_file():
+    # TODO: make this a non-blocking operation and update the page after the command executes if possible
+    # TODO: fix how the textbox works... it's a little gross at the moment
+    
     # steps:
     # 1. Create a file using the template
     f = open("equation.tex","w")
@@ -48,15 +51,29 @@ def save_file():
     cmd = "pdflatex equation.tex"
     print("Executing: " + cmd)
     res = RunCMD(cmd, -1)
-    # TODO: handle the command failing
-    #print("Command exited with status: " + res)
+    if(not res["ret"]==0):
+        print("Command exited with status: " + str(res["ret"]))
+        if(res["out"]==None):
+            res["out"]=""
+        if(res["err"]==None):
+            res["err"]=""
+        print("Command stdout: " + res["out"])
+        print("        stderr: " + res["err"])
+        return render_template("index.html", equation_image="latex_failed.png")
     
     # 3. Convert to png
     cmd = "convert -density 300 equation.pdf -quality 90 -trim static/equation.png"
     print("Executing: " + cmd)
     res = RunCMD(cmd, -1)
-    # TODO: handle the command failing
-    #print("Command exited with status: " + res)
+    if(not res["ret"]==0):
+        print("Command exited with status: " + str(res["ret"]))
+        if(res["out"]==None):
+            res["out"]=""
+        if(res["err"]==None):
+            res["err"]=""
+        print("Command stdout: " + res["out"])
+        print("        stderr: " + res["err"])
+        return render_template("index.html", equation_image="convert_failed.png")
     
     return render_template("index.html", equation_image="equation.png")
 
