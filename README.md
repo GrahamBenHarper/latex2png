@@ -8,7 +8,7 @@ This requires the python package Flask to run the application. It additionally r
 
 The application is run by running `app.py`. Then, the content should be visible on `127.0.0.1:5000` in any web browser. Simply enter an equation into the text field and click the submit button.
 
-![tutorial](https://user-images.githubusercontent.com/12531152/194992526-3dcb2a7c-b6c0-43fe-9040-176c05275481.gif)
+![tutorial](https://user-images.githubusercontent.com/12531152/194993345-a677d9df-bcd2-4cf2-8e86-444b7814aa74.gif)
 
 ### Troubleshooting
 
