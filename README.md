@@ -5,9 +5,13 @@ A simple Flask-based application for rendering LaTeX equations as `.png` images.
 This requires the python package Flask to run the application. It additionally requires texlive-latex-base, and imagemagick. Specifically, the commands `pdflatex` and `convert` from the latter two packages should be available in your `$PATH`. This has been tested on Ubuntu 22.04.
 
 ### Running the application
+
 The application is run by running `app.py`. Then, the content should be visible on `127.0.0.1:5000` in any web browser. Simply enter an equation into the text field and click the submit button.
 
+![tutorial](https://user-images.githubusercontent.com/12531152/194992526-3dcb2a7c-b6c0-43fe-9040-176c05275481.gif)
+
 ### Troubleshooting
+
 When converting pdf files to images, you may see the following error:
 ```
 convert-im6.q16: attempt to perform an operation not allowed by the security policy `PDF' @ error/constitute.c/IsCoderAuthorized/421.
