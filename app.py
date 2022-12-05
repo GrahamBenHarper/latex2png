@@ -59,7 +59,7 @@ def save_file():
             res["err"]=""
         print("Command stdout: " + res["out"])
         print("        stderr: " + res["err"])
-        return render_template("index.html", equation_image="latex_failed.png")
+        return render_template("index.html", equation_image="latex_failed.png", default_text=equation)
     
     # 3. Convert to png
     cmd = "convert -density 300 equation.pdf -quality 90 -trim static/equation.png"
@@ -73,14 +73,14 @@ def save_file():
             res["err"]=""
         print("Command stdout: " + res["out"])
         print("        stderr: " + res["err"])
-        return render_template("index.html", equation_image="convert_failed.png")
+        return render_template("index.html", equation_image="convert_failed.png", default_text=equation)
     
-    return render_template("index.html", equation_image="equation.png")
+    return render_template("index.html", equation_image="equation.png", default_text=equation)
 
 @app.route('/')
 def index():
     if not request.args.get("equation"):
-        return render_template("index.html", equation_image="equation.png")
+        return render_template("index.html", equation_image="equation.png", default_text="enter your equation here")
 
     return save_file()
 

@@ -6,10 +6,11 @@
 
 <center>
 <form method="GET" action="">
-Equation: <br>
-<input type="text" name="equation" value="enter your equation here..." />
+Equation:
 <br>
-<input type="submit" />
+<textarea name="equation" rows="10" cols="64">{{ default_text }}</textarea>
+<br><br>
+<input type="submit"/>
 <br><br>
 <img src="{{ url_for('static', filename=equation_image) }}">
 </form>
